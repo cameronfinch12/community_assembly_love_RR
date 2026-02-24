@@ -145,6 +145,9 @@ df_21 <- read.csv('outputs/statistical/21_training_final_dataset.csv')
 graph_21 <- ggplot(df_21, aes(x =name_nice , y = abundance_mae_mean_test_scaled, color = method)) + geom_point() + geom_jitter(width = 0.05)
 graph_21
 
+df_10 <- read.csv('outputs/statistical/10_training_final_dataset.csv')
+graph_10 <- ggplot(df_10, aes(x =name_nice , y = abundance_mae_mean_test_scaled, color = method)) + geom_point() + geom_jitter(width = 0.05)
+graph_10
 
 
 #literal garbage, ignore this nonsense you wrote IT DOES NOT WORK ----

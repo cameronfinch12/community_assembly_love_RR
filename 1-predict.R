@@ -157,11 +157,13 @@ data_wildflowers <- data_wildflowers %>%
             'n_infect_occurences', "composition","Species_diversity", "Functional_composition" , "Sown_sla", "N", 
             "Sown_mpd_sla", "Notes", "Block"))
 
+colSums(is.na(data_wildflowers))
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_wildflowers,
   dataset_name = 'wildflowers',
-  num_species = 6,
+  num_species = 18,
   method_list = METHODS,
   experimental_design_list = EXPERIMENTAL_DESIGNS,
   num_replicates_in_data = 4)
@@ -184,11 +186,17 @@ data_grassland_diversity <- data_grassland_diversity %>%
   mutate(weeded = as.factor(weeded), 
          fertilized = as.factor(fertilized))
 
+data_grassland_diversity <- data_grassland_diversity %>% 
+  drop_na()
+
+colSums(is.na(data_grassland_diversity))
+
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_grassland_diversity,
   dataset_name = 'grassland_diversity',
-  num_species = 6,
+  num_species = 7,
   method_list = METHODS,
   experimental_design_list = EXPERIMENTAL_DESIGNS,
   num_replicates_in_data = 5)
@@ -197,15 +205,16 @@ results = perform_prediction_experiment_full(
 set.seed(1)
 data_jena_wildflowers <- read.csv('data/jena_wildflowers/data_jena_wildflowers.csv') %>% 
   select(-Experimenta_plot)
+colSums(is.na(data_jena_wildflowers))
 
 results = perform_prediction_experiment_full(
   directory_string,
   data_jena_wildflowers,
   dataset_name = 'jena_wildflowers',
-  num_species = 6,
+  num_species = 10,
   method_list = METHODS,
   experimental_design_list = EXPERIMENTAL_DESIGNS,
-  num_replicates_in_data = 5)
+  num_replicates_in_data = 4)
 
 
 
