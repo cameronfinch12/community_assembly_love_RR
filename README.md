@@ -3,6 +3,7 @@ Community assembly outcome prediction and prioritization - Learning Outcomes Via
 
 ## Author
 Benjamin Blonder (benjamin.blonder@berkeley.edu) and Michael H. Lim (michaelhlim@berkeley.edu)
+Additional edits by Ria Raut (ria_raut_7@berkeley.edu) 
 
 ## Datasets
 All included datasets are obtained from public repositories and re-shared here. We do not claim ownership over any of these files. More information on data provenance is available in the Supporting Information of the accompanying manuscript.
