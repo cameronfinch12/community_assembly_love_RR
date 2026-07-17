@@ -1,6 +1,6 @@
 #Michael Lim, Ben Blonder 
 #Later minor edits by Ria Raut (post Jan 20th) 
-#test 
+#test test test 
 
 # Basic housekeeping. Run every time ----- 
 # Setup output directory
@@ -17,7 +17,7 @@ source('src/coexistence_love.R')
 # CORES <- as.numeric(Sys.getenv('SLURM_CPUS_ON_NODE'))
 
 # Perform analyses
-
+getwd()
 
 # Original datasets from Blonder, 2024 LOVE ---- 
 ### MULTIPLE ENVIRONMENTS
@@ -218,6 +218,20 @@ results = perform_prediction_experiment_full(
   num_replicates_in_data = 4)
 
 
+#amphibian parasites 
+set.seed(1)
+data_amphibian_parasites <- read.csv('data/amphibian_parasites/data_amphibian_parasites.csv') %>% 
+  select(-c(Carriers_added, row_ID))
+colSums(is.na(data_amphibian_parasites))
 
+
+results = perform_prediction_experiment_full(
+  directory_string,
+  data_amphibian_parasites,
+  dataset_name = 'amphibian_parasites',
+  num_species = 4,
+  method_list = METHODS,
+  experimental_design_list = EXPERIMENTAL_DESIGNS,
+  num_replicates_in_data = 3)
 
 
