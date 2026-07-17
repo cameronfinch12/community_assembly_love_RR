@@ -1,7 +1,6 @@
 #Michael Lim, Ben Blonder 
 #Later minor edits by Ria Raut (post Jan 20th) 
-
-#edit edit blah blah 
+#test 
 
 # Basic housekeeping. Run every time ----- 
 # Setup output directory
