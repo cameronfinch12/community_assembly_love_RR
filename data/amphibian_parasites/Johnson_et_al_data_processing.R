@@ -44,4 +44,4 @@ final <- expanded %>%
              Cephalogonimus, 
              Ribeiroia))
 
-write.csv(final, 'LOVE_updated_Johnson2019_parasites.csv', row.names = F)
+write.csv(final, 'data/amphibian_parasites/LOVE_updated_Johnson2019_parasites.csv', row.names = F)
