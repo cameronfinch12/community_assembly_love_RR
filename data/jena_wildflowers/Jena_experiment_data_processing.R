@@ -1,7 +1,7 @@
 #Ria Raut 
 #January 23rd, 2026 
+setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/community_assembly_love_RR-NEW/data')
 
-setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/LOVE_git_scripts/new_data_initial_processing/JenaExperiment_biomass_all')
 getwd()
 
 library(readr) 
@@ -12,7 +12,7 @@ library(stringr)
 #load stupid yumcky messy dataset 
 jena_dom_2002 <- as.data.frame(
   read_tsv(
-  "datasets/JenExp_biomass_2002_trial.txt",
+  "jena_wildflowers/datasets/JenExp_biomass_2002_trial.txt",
   col_names = TRUE,
   na = c("", "NA")
 ))
@@ -82,7 +82,7 @@ write.csv(presence_absence, 'jena_2002_initial_state.csv')
 #Cleaning 2015 final state data ---- 
 jena_dom_2015 <- as.data.frame(
   read_tsv(
-    "datasets/JenExp_biomass_2015_trial.txt",
+    "jena_wildflowers/datasets/JenExp_biomass_2015_trial.txt",
     col_names = TRUE,
     na = c("", "NA")
   ))
@@ -157,8 +157,8 @@ write.csv(final_2015_rightcolumns, 'jena_2015_final_state.csv')
 
 #Let's join intial and final states ---- 
 
-jena_2002 <- read.csv('jena_2002_initial_state.csv')
-jena_2015 <- read.csv('jena_2015_final_state.csv')
+jena_2002 <- read.csv('jena_wildflowers/jena_2002_initial_state.csv')
+jena_2015 <- read.csv('jena_wildflowers/jena_2015_final_state.csv')
 
 #Let's change the names to include action and output 
 jena_2002_renamed <- jena_2002 %>% 
@@ -195,7 +195,8 @@ jena_2015_renamed <- jena_2015 %>%
   select(-X)
 
 colnames(jena_2015_renamed)
-
+jena_2015_renamed <- jena_2015_renamed %>% 
+  rename(month.initial = month)
 final_dataset <- jena_2002_renamed %>% 
   left_join(jena_2015_renamed, by = 'Experimenta_plot')
 
