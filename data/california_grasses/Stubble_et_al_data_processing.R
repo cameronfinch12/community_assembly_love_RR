@@ -5,9 +5,10 @@ library(tidyverse)
 library(janitor)
 
 
-setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/LOVE_git_scripts/new_data/Stubble_et_al_2017_PRYER_info/actual_data')
+#setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/LOVE_git_scripts/new_data/Stubble_et_al_2017_PRYER_info/actual_data')
+setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/community_assembly_love_RR-NEW/data')
 
-Pryer_data <- read.csv('PRYER_STG.csv', stringsAsFactors = F)
+Pryer_data <- read.csv('california_grasses/actual_data/PRYER_STG.csv', stringsAsFactors = F)
 
 #Cleaning and columns prep ----
 #First take out useless columns that you won't need, ex. exp, ref, data.collection.year, growing.seasons, rep.5,
@@ -22,7 +23,7 @@ Pryer_cleaned <- Pryer_data %>% select(-c("exp", "ref",
 Pryer_cleaned <- Pryer_cleaned %>% 
   rename_with(~ paste0(.x, ".outcome")) %>% 
 #fix some new names -- ignore for now, can always fix later 
-  rename(water = water.outcome) %>% 
+  rename(water.initial = water.outcome) %>% 
   rename(treatment = treatment.outcome) %>% 
   rename(total.n = total.n.outcome) %>% 
   rename(total.i = total.i.outcome) %>% 
@@ -97,7 +98,7 @@ Pryer_allinfo <- Pryer_cleaned %>%
 
 #let's organize the dataframe columns 
 Pryer_final <- Pryer_allinfo %>% 
-  dplyr::select(c(water, treatment, 
+  dplyr::select(c(water.initial, treatment, 
                   contains('action'),
                   contains('mid_state'), 
                   contains('late_state'),
