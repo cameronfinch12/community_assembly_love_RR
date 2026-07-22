@@ -115,3 +115,5 @@ old_data_wildflowers <- read.csv('wildflowers/data_wildflowers.csv', stringsAsFa
 new_data_wildflowers <- old_data_wildflowers %>% 
   rename(nitrogen.initial = Nitrogen) %>% 
   rename(fungicide.nitial = Fungicide)
+
+write.csv(new_data_wildflowers, 'wildflowers/data_wildflowers.csv', row.names = F)
