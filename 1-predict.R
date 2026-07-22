@@ -148,6 +148,7 @@ results = perform_prediction_experiment_full(
 
 # Newer processed datasets ---- 
 
+### MULTIPLE ENVIRONMENTS 
 #WILDFLOWERS 
 set.seed(1)
 data_wildflowers = read.csv('data/wildflowers/data_wildflowers.csv') %>% 
@@ -172,7 +173,7 @@ results = perform_prediction_experiment_full(
   num_replicates_in_data = 4)
 
 
-#FLETCHER's GRASSLAND DIVERSITY -- UGGGG NOOO IT DOESNT WORKKK 
+#FLETCHER's GRASSLAND DIVERSITY 
 set.seed(1)
 data_grassland_diversity <- read.csv('data/grassland_diversity/data_grassland_diversity.csv') %>% 
   select(-plot.num)
@@ -220,6 +221,7 @@ results = perform_prediction_experiment_full(
   num_replicates_in_data = 4)
 
 
+# SINGLE ENVIRONMENT 
 #amphibian parasites 
 set.seed(1)
 data_amphibian_parasites <- read.csv('data/amphibian_parasites/data_amphibian_parasites.csv') %>% 
