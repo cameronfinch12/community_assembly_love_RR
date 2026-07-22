@@ -5,7 +5,7 @@ library(tidyverse)
 library(janitor)
 
 
-setwd("C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/LOVE_git_scripts/new_data/Cappelli_et_al_2022_data") 
+setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/community_assembly_love_RR-NEW/data')
 
       
 
@@ -104,7 +104,14 @@ replaced_NAs <- total_cappelli_processed %>%
     ~ replace_na(as.numeric(.x), 0)
   ))
 
-write.csv(replaced_NAs, 'LOVE_updated_data_cappelli_grasses.csv', row.names = F)
+write.csv(replaced_NAs, 'LOVE_updated_data_cappelli_grasses.csv', row.names = F) #note that I later changed the name to data_wildflowers 
 
 #just remember that when you're using this data to train LOVE, you gotta split it up into 4 groups (by enviromental condition)
 #OR include Nitrogen and fungal treatments as training variables! Each group is !84 plots iirc 
+
+#Let's rename the nitrogen and fungicide treatments ---- 
+old_data_wildflowers <- read.csv('wildflowers/data_wildflowers.csv', stringsAsFactors = T)
+
+new_data_wildflowers <- old_data_wildflowers %>% 
+  rename(nitrogen.initial = Nitrogen) %>% 
+  rename(fungicide.nitial = Fungicide)
