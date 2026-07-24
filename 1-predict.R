@@ -1,10 +1,18 @@
 #Michael Lim, Ben Blonder 
 #Later minor edits by Ria Raut (post Jan 20th) 
-#test test test 
+
+setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/community_assembly_love_RR-NEW')
+
+#PLACEHOLDER CODE 
+# n_unique <- df %>%
+#   select(contains(".action")) %>%
+#   distinct() %>%
+#   nrow()
+# 
+# n_unique
 
 # Basic housekeeping. Run every time ----- 
 # Setup output directory
-setwd('C:/Users/riara/OneDrive/All Documents/UCBerk Personal research work/LOVE/community_assembly_love_RR-NEW')
 
 try(dir.create(file.path(getwd(), 'outputs/figures'), recursive = TRUE))
 try(dir.create(file.path(getwd(), 'outputs/statistical'), recursive = TRUE))
@@ -43,6 +51,7 @@ data_fruit_flies = data_fruit_flies %>%
   select(!contains(species_lowest_abundance)) %>%
   as.data.frame
 
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_fruit_flies,
@@ -67,6 +76,7 @@ results = perform_prediction_experiment_full(
 set.seed(1)
 data_grassland_annual_plants_drought = read.csv('data/grassland_annual_plants_drought/data_grassland_annual_plants_drought.csv') %>%
   mutate(treatment.initial = factor(treatment.initial))
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_grassland_annual_plants_drought,
@@ -81,6 +91,7 @@ results = perform_prediction_experiment_full(
 
 set.seed(1)
 data_soil_bacteria = read.csv('data/soil_bacteria/data_soil_bacteria.csv')
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_soil_bacteria,
@@ -92,6 +103,7 @@ results = perform_prediction_experiment_full(
 
 set.seed(1)
 data_mouse_gut = read.csv('data/human_and_mouse_gut/data_mouse_gut.csv')
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_mouse_gut,
@@ -137,6 +149,7 @@ results = perform_prediction_experiment_full(
 
 set.seed(1)
 data_forest_trees = read.csv('data/forest_trees/data_forest_trees.csv')
+
 results = perform_prediction_experiment_full(
   directory_string,
   data_forest_trees,
@@ -160,8 +173,6 @@ data_wildflowers <- data_wildflowers %>%
   select(-c("Plot", 'Harvest', 'Calculated_herbivory', 'n_herb_occurences', 'Measured_infection', 
             'n_infect_occurences', "composition","Species_diversity", "Functional_composition" , "Sown_sla", "N", 
             "Sown_mpd_sla", "Notes", "Block"))
-
-colSums(is.na(data_wildflowers))
 
 results = perform_prediction_experiment_full(
   directory_string,
@@ -209,8 +220,6 @@ results = perform_prediction_experiment_full(
 set.seed(1)
 data_jena_wildflowers <- read.csv('data/jena_wildflowers/data_jena_wildflowers.csv') %>% 
   select(-Experimenta_plot)
-colSums(is.na(data_jena_wildflowers))
-
 results = perform_prediction_experiment_full(
   directory_string,
   data_jena_wildflowers,
@@ -226,8 +235,6 @@ results = perform_prediction_experiment_full(
 set.seed(1)
 data_amphibian_parasites <- read.csv('data/amphibian_parasites/data_amphibian_parasites.csv') %>% 
   select(-c(Carriers_added, row_ID))
-colSums(is.na(data_amphibian_parasites))
-
 
 results = perform_prediction_experiment_full(
   directory_string,
