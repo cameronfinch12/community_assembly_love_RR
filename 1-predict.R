@@ -103,7 +103,6 @@ results = perform_prediction_experiment_full(
 
 set.seed(1)
 data_mouse_gut = read.csv('data/human_and_mouse_gut/data_mouse_gut.csv')
-
 results = perform_prediction_experiment_full(
   directory_string,
   data_mouse_gut,
